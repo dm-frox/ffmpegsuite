@@ -1,0 +1,8 @@
+p { background-color:rgb(240,240,240); }
+ol { background-color:rgb(250,240,240); }
+h1 { font-family: "Arial", sans-serif; font-size: 20pt }
+h2 { font-family: "Arial", sans-serif; font-size: 18pt }
+h3 { font-family: "Arial", sans-serif; font-size: 16pt }
+code { font-size: 11pt; background-color:rgb(200,200,255); }
+pre { font-size: 11pt; background-color:rgb(245,255,245); }
+.title { font-family: "Arial", sans-serif; font-size:22pt; font-weight:bold }

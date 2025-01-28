@@ -1,0 +1,12 @@
+﻿<Application x:Class="Transcoder.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             StartupUri="MainWindow.xaml"
+             
+             Startup="App_Startup"
+             Exit="App_Exit" 
+             DispatcherUnhandledException="App_DispatcherUnhandledException">
+    <Application.Resources>
+         
+    </Application.Resources>
+</Application>

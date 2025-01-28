@@ -1,0 +1,12 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:loc="clr-namespace:CommonCtrls" >
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/CommonCtrls;component/Themes/SkinBtns.xaml" />
+        <ResourceDictionary Source="/CommonCtrls;component/Themes/SkinToggBtn.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+</ResourceDictionary>
+    
+  

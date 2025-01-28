@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<!-- Player: video filters  -->
+
+<Filters>
+
+  <Filter DisplayName="Brightness-Contrast-Saturation" Commands="10">
+    eq
+  </Filter>
+  
+
+  <Filter DisplayName="Draw text" Commands="20">
+    drawtext=fontfile='C\:/Windows/Fonts/arialbd.ttf':text=''
+  </Filter>
+  
+  <Filter DisplayName="Draw box"  Commands="1">
+    drawbox=x=20:y=40:w=200:h=160:color=magenta:t=4
+  </Filter>
+
+  <Filter DisplayName="Flip horizontally">
+    hflip
+  </Filter>
+
+  <Filter DisplayName="Flip vertically">
+    vflip
+  </Filter>
+
+  <Filter DisplayName="Draw grid (red)" Commands="1">
+    drawgrid=width=100:height=100:thickness=2:color=red@0.5
+  </Filter>
+
+  <Filter DisplayName="Draw grid (gray)" Commands="1">
+    drawgrid=width=15:height=15:thickness=1:color=gray@0.2
+  </Filter>
+
+  <Filter DisplayName="Blur">
+    boxblur=luma_radius=3:luma_power=1
+  </Filter>
+
+  <Filter DisplayName="Hue" Commands="1">
+    hue=h=90:s=1
+  </Filter>
+
+  <Filter DisplayName="Scale 400x400">
+    scale=w=400:h=400
+  </Filter>
+
+  <Filter DisplayName="Subtitles default" >
+    subtitles=default
+  </Filter>
+  
+  <Filter DisplayName="Subtitles default 1" >
+    subtitles=default:1
+  </Filter>
+  
+</Filters>

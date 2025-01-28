@@ -1,0 +1,52 @@
+﻿<Window x:Class="Explorer.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:loc="clr-namespace:Explorer"
+        mc:Ignorable="d"
+        Title="FFmpeg Explorer" 
+        SizeToContent="WidthAndHeight" ResizeMode="CanMinimize" 
+        Closed="Window_Closed" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen">
+
+    <Window.CommandBindings>
+        <CommandBinding Command="loc:AppCommands.Help" Executed="cmdHelp_Executed" />
+        <CommandBinding Command="loc:AppCommands.Docs" Executed="cmdDocs_Executed" />
+    </Window.CommandBindings>
+
+    <StackPanel  Background="#F0F0F0" >
+        <Label Content="Help - F1     Docs - Ctrl+F1"  Margin="0,4,0,2" Padding="4,0,4,0" HorizontalAlignment="Center" FontSize="12" FontWeight="Bold"
+                       Foreground="DarkOliveGreen"  Background="Linen" />
+
+        <StackPanel Name="panelButtons" >
+            <StackPanel Orientation="Horizontal" Margin="10,10,10,0"  HorizontalAlignment="Center" >
+                <Button Name="buttonFormats" Width="80" Margin="0,0,0,0" Content="_Formats..." Click="buttonFormats_Click" />
+                <Button Name="buttonProtocols" Width="80" Margin="20,0,0,0" Content="_Protocols..." Click="buttonProtocols_Click"/>
+                <Button Name="buttonCodecs" Width="80" Margin="20,0,0,0" Content="_Codecs..." Click="buttonCodecs_Click"/>
+                <Button Name="buttonFilters" Width="80" Margin="20,0,0,0" Content="Fil_ters..." Click="buttonFilters_Click"/>
+                <Button Name="buttonBsf" Width="80" Margin="20,0,0,0" Content="Bitstream flt..." Click="buttonBsf_Click"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0,10,0,0"  HorizontalAlignment="Center">
+                <Button Name="buttonFixFmts" Width="100" Margin="0,0,0,0" Content="Pi_xel formats..." Click="buttonFixFmts_Click"  />
+                <Button Name="buttonSampFmts" Width="100" Margin="20,0,0,0" Content="S_ample formats..." Click="buttonSampFmts_Click"   />
+                <Button Name="buttonChanns" Width="100" Margin="20,0,0,0" Content="C_hann. layouts..." Click="buttonChanns_Click"    />
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0,10,0,0"  HorizontalAlignment="Center">
+                <Button Name="buttonVersions" Width="80" Margin="0,0,0,0" Content="_Versions..." Click="buttonVersions_Click"/>
+            </StackPanel>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" Margin="0,10,0,0" HorizontalAlignment="Center">
+            <Label Name="labelFFmpeg" Content="XXL" />
+        </StackPanel>
+        
+        <StackPanel Name="panelTest" Orientation="Horizontal">
+            <Button Name="btnTest" Content="Test" Margin="10,0,0,0" VerticalAlignment="Center" Width="48" 
+                        Click="btnTest_Click" />
+            <Label Name="labelTest" Content="?" Margin="8,0,0,0"/>
+        </StackPanel>
+        
+    </StackPanel>
+</Window>

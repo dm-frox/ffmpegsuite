@@ -1,0 +1,113 @@
+﻿<Window x:Class="Explorer.CodecWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Explorer"
+        mc:Ignorable="d"
+        Title="Codecs" 
+        ResizeMode="NoResize" WindowStartupLocation="CenterOwner" ShowInTaskbar="False" SizeToContent="WidthAndHeight" 
+        Closed="Window_Closed" >
+    <Grid Background="Gainsboro">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="590" />
+            <RowDefinition Height="32" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="256" />
+            <ColumnDefinition Width="400" />
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Margin="4, 0, 0, 0" VerticalAlignment="Stretch">
+    
+            <StackPanel Orientation="Horizontal" Margin="0, 4, 0, 0">
+                <Label Content="Sort:" />
+                <RadioButton Name="radioSortById" Content="By ID" Margin="10, 0, 0, 0" IsChecked="True" VerticalAlignment="Center" 
+                             Checked="UpdateTree" />
+                <RadioButton Name="radioSortByName" Content="By name" Margin="10, 0, 0, 0" VerticalAlignment="Center" 
+                             Checked="UpdateTree" />
+            </StackPanel>
+            <TreeView Name="treeView" Background="WhiteSmoke" Height="550" 
+                SelectedItemChanged="treeView_SelectedItemChanged" >
+                <TreeViewItem Name="treeViewRootV" Header="Video" />
+                <TreeViewItem Name="treeViewRootA" Header="Audio" />
+                <TreeViewItem Name="treeViewRootS" Header="Subtitle" />
+                <TreeViewItem Name="treeViewRootD" Header="Data" />
+                <!--<TreeViewItem Name="treeViewRootT" Header="Attach" />-->
+            </TreeView>
+        </StackPanel>
+        
+        <StackPanel Grid.Column="1"  Margin="6, 6, 6, 4">
+            <StackPanel Background="Ivory">
+                <Label Content="Codec ID (Compression format)" HorizontalAlignment="Center" FontWeight="SemiBold" />
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="Media type:"   Width="80" />
+                    <TextBox Name="textMediaType" Width="48" IsReadOnly="True" Text="" VerticalAlignment="Center"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal"  >
+                    <Label Content="Name:"  Width="80" />
+                    <TextBox Name="textCodecIdName" Width="150" IsReadOnly="True" Text="" VerticalAlignment="Center"/>
+                </StackPanel>
+                <Label Content="Description:" />
+                <TextBox Name="textCodecId" Height="36" Margin="6, 0, 6, 0" IsReadOnly="True" TextWrapping="Wrap" VerticalAlignment="Center" VerticalScrollBarVisibility="Auto"/>
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="Lossless:"/>
+                    <TextBox Name="textLossless" Width="24" IsReadOnly="True" Text="" VerticalAlignment="Center"/>
+                    <Label Content="Lossy:" Margin="26, 0, 0, 0" />
+                    <TextBox Name="textLossy" Width="24" IsReadOnly="True" Text="" VerticalAlignment="Center"/>
+                    <Label Content="Intra frame-only:" Margin="24, 0, 0, 0"/>
+                    <TextBox Name="textIntraOnly" Width="24" IsReadOnly="True" Text="" VerticalAlignment="Center"/>
+                </StackPanel>
+               
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="Decoders/Encoders:" Width="128" />
+                    <TextBox Name="textDecEnc" Width="40" IsReadOnly="True" Text="" VerticalAlignment="Center"/>
+                </StackPanel>
+                
+
+            <StackPanel Margin="0,10,0,0" Background="Ivory">
+                <Label Content="Codec" HorizontalAlignment="Center" FontWeight="SemiBold" />
+                <StackPanel Orientation="Horizontal"  >
+                    <Label Name="labelCodecName" Content="Name/Use:"  Width="80" />
+                        <TextBox Name="textCodecName" Width="200" IsReadOnly="True" Text="" VerticalAlignment="Center"/>
+                </StackPanel>
+                <Label Content="Description:" />
+                <TextBox Name="textCodecLongName" Height="36" Margin="6, 0, 6, 0" IsReadOnly="True" TextWrapping="Wrap" VerticalAlignment="Center" VerticalScrollBarVisibility="Auto"/>
+            
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="Experimental:"/>
+                        <TextBox Name="textExperimental" Width="24" IsReadOnly="True" Text="" VerticalAlignment="Center"/>
+                </StackPanel>
+                <Label Content="Frame formats:" Margin="0, 4, 0, 0" />
+                <TextBox Name="textMediaFormats" Height="36" Margin="6, 0, 6, 0" IsReadOnly="True" TextWrapping="Wrap" VerticalAlignment="Center" VerticalScrollBarVisibility="Auto" />
+                <Label Content="Hardware accelerations:" Margin="0, 4, 0, 0" />
+                <TextBox Name="textAccelerations" Height="18" Margin="6, 0, 6, 6" IsReadOnly="True" TextWrapping="Wrap" VerticalAlignment="Center" VerticalScrollBarVisibility="Auto"/>
+                <Label Content="Private options:" Margin="0, 4, 0, 0" />
+                <TextBox Name="textPrivOptions" Height="54" Margin="6, 0, 6, 6" IsReadOnly="True" TextWrapping="Wrap" VerticalAlignment="Center" VerticalScrollBarVisibility="Auto"/>
+                    <Button Name="buttonPrivOpts" Width="64" HorizontalAlignment="Right" Content="_Detailed..." Margin="0, 0, 6, 4"  IsEnabled="False" 
+                        Click="buttonPrivOpts_Click" />
+
+             </StackPanel>
+
+        </StackPanel>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="1"  Margin="0, 4, 40, 4" HorizontalAlignment="Right">
+            <Button Width="72" Margin="40, 0, 0, 0" Content="_Expand all" VerticalAlignment="Center" 
+                Click="buttonExpandAll_Click" />
+            <Button Name="buttonCollapseAll" Width="72" Margin="40, 0, 0, 0" Content="_Collapse" VerticalAlignment="Center" 
+                Click="buttonCollapseAll_Click" />
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="1" Margin="0, 4, 40, 4" HorizontalAlignment="Right" >
+            <Button Name="buttonContext" Width="64" Margin="0, 0, 0, 0" VerticalAlignment="Center" Content="Conte_xt..." 
+                    Click="buttonContext_Click" />
+            <Button Name="buttonSave" Width="60" Margin="20, 0, 0, 0" Content="_Save..." VerticalAlignment="Center" 
+                    Click="buttonSave_Click" />
+            <Button Name="buttonDocs"  Width="64" Margin="20, 0, 0, 0" Content="_Docs" 
+                VerticalAlignment="Center" Click="buttonDocs_Click"/>
+            <Button Name="buttonExit" Width="64" Margin="20, 0, 0, 0" Content="Close"  VerticalAlignment="Center" 
+                    IsDefault="True" IsCancel="True"/>
+        </StackPanel>   
+    </Grid>
+</Window>

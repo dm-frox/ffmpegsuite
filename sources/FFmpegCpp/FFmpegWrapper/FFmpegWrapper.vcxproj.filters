@@ -1,0 +1,203 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="include">
+      <UniqueIdentifier>{3e927548-e153-43d1-a29d-d1bc70192a9d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Module">
+      <UniqueIdentifier>{e5c01e4f-f607-4f59-aaad-ce7f5ed3ffce}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\BaseIface.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\CoreIface.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\FrameSinkAudioIface.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\FrameSinkVideoIface.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\HdrReaderIface.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\LogLevelEnum.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\MediaPlayerStemIface.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\MediaSourceInfoIface.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\OscBuilderIface.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ProbeIface.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\TranscoderIface.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="pch.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CoreImpl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="HdrReaderImpl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MediaPlayerStemImpl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="OscBuilderImpl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ProbeImpl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TranscoderImpl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\CodecListIface.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="CodecListImpl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FormatListImpl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\FormatListIface.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="FFmpegWrapper.h">
+      <Filter>Module</Filter>
+    </ClInclude>
+    <ClInclude Include="osdefs.h">
+      <Filter>Module</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ProtocolListIface.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="ProtocolListImpl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\MediaTypeEnum.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\AudioArrMuxerIface.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="AudioArrMuxerImpl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\HdrReaderBaseIface.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\FilterListIface.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="FilterListImpl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ChannListIface.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="ChannListImpl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PixFmtListIface.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="PixFmtListImpl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\SampFmtListIface.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="SampFmtListImpl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\BsfListIface.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="BsfListImpl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ListBaseIface.h">
+      <Filter>include</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="pch.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CoreImpl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="dllmain.cpp">
+      <Filter>Module</Filter>
+    </ClCompile>
+    <ClCompile Include="HdrReaderImpl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MediaPlayerStemImpl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="OscBuilderImpl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ProbeImpl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TranscoderImpl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CodecListImpl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FormatListImpl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseImpl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FFmpegWrapper.cpp">
+      <Filter>Module</Filter>
+    </ClCompile>
+    <ClCompile Include="ProtocolListImpl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="AudioArrMuxerImpl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FilterListImpl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ChannListImpl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PixFmtListImpl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SampFmtListImpl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="BsfListImpl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

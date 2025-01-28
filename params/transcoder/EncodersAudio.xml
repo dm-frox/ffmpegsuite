@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<!-- Transcoder: audio encoders -->
+
+<Encoders>
+
+  <Encoder DisplayName="Packet copying" 
+      Name="c"> 
+  </Encoder>
+
+  <Encoder DisplayName="MP3; bitrate=64K, mono"
+      Name="libmp3lame"
+      Bitrate="64K"
+      Channels="1">
+  </Encoder>
+
+  <Encoder DisplayName="MP3; bitrate=128K" 
+      Name="libmp3lame"
+      Bitrate="128K">
+  </Encoder>
+
+  <Encoder DisplayName="AAC, bitrate=256K"
+      Name="aac"
+      Bitrate="256K">
+  </Encoder>
+
+  <Encoder DisplayName="PCM16; mono, 11025 Hz"
+      Name="pcm_s16le" 
+      Channels="1" 
+      SampleRate="11025" >
+  </Encoder>
+
+</Encoders>
+

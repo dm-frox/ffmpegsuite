@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<!-- Transcoder: metadata for container -->
+
+<Metadata>
+  <Metadata>
+    <Item Key="Totem" Value="Ginger cat"/>
+  </Metadata>
+
+  <Metadata>
+    <Item Key="Nickname" Value="Crazy Rabbit"/>
+    <Item Key="Color" Value="Lightgreen"/>
+  </Metadata>
+
+</Metadata>

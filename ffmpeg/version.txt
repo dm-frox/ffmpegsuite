@@ -1,0 +1,13 @@
+FFmpeg 7.1 "Péter"
+7.1 was released on 2024-09-30. It is the latest stable FFmpeg release from the 7.1 release branch, which was cut from master on 2024-09-24.
+
+It includes the following library versions:
+
+libavutil      59. 39.100
+libavcodec     61. 19.100
+libavformat    61.  7.100
+libavdevice    61.  3.100
+libavfilter    10.  4.100
+libswscale      8.  3.100
+libswresample   5.  3.100
+libpostproc    58.  3.100

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<!-- Transcoder: video encoders -->
+
+<Encoders>
+
+  <Encoder DisplayName="Packet copying" 
+      Name="c"> 
+  </Encoder>
+
+  <Encoder DisplayName="H264; bitrate=5M, veryfast" 
+      Name="libx264"
+      Bitrate="5M" 
+      Preset="veryfast">
+  </Encoder>
+  
+  <Encoder DisplayName="H264; crf=28, slow" 
+      Name="libx264"
+      Crf="28" 
+      Preset="slow">
+  </Encoder>
+
+  <Encoder DisplayName="H264; bitrate=5M, pix.fmt: NV12" 
+      Name="libx264"
+      Bitrate="5M" 
+      PixelFormat="nv12">
+  </Encoder>
+  <Encoder DisplayName="H264; bitrate=5M, filter: vflip" 
+      Name="libx264"
+      Bitrate="5M" 
+      Filter="vflip">
+  </Encoder>
+
+  <Encoder DisplayName="H264; bitrate=1M, 640x480, fps=10" 
+      Name="libx264"
+      Bitrate="1M" 
+      Width="640" 
+      Height="480"
+	  Fps="10">
+  </Encoder>
+
+  <Encoder DisplayName="H264; bitrate=5M, GOP size=20" 
+      Name="libx264"
+      Bitrate="5M">
+    <Option Key="g" Value="20"/>
+  </Encoder>
+
+  <Encoder DisplayName="H264-QSV; bitrate=5M, fast"
+      Name="h264_qsv"
+      Bitrate="5M" 
+      Preset="fast">
+  </Encoder>
+
+</Encoders>
+
+<!--
+presets:  ultrafast, superfast, veryfast, faster, fast, medium, slow, slower, veryslow. medium is default
+crf: 0-51. 23 is default 
+
+-->

@@ -1,0 +1,28 @@
+﻿<Window x:Class="Player.OptionsExWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Player"
+        mc:Ignorable="d"
+        Title="Extended options" 
+        ResizeMode="NoResize"  SizeToContent="WidthAndHeight" 
+        ShowInTaskbar="False" WindowStartupLocation="CenterOwner"  Background="#F0F0F0">
+    <StackPanel Margin="10,10,10,10">
+        <CheckBox Name="checkBoxStopOnEof" Content="Stop _on EOF" Margin="10,0,0,0" VerticalAlignment="Center" />
+        <CheckBox Name="checkBoxSyncByAudio" Content="Synchronize video by _audio" Margin="10,10,0,0" VerticalAlignment="Center" />
+        <CheckBox Name="checkBoxUseFilterGraphAlways" Content="Use _filter graph always" Margin="10,10,0,0" VerticalAlignment="Center" />
+        <CheckBox Name="checkBoxConvFrameSeq" Content="Convert frames _sequentially" Margin="10,10,0,0" VerticalAlignment="Center" />
+        <CheckBox Name="checkBoxSwapFields" Content="S_wap fields" Margin="10,10,0,0" VerticalAlignment="Center" />
+
+        <Label Margin="10, 10, 0, 0"  Content="Audio _device:" Padding="0,0,0,0" VerticalAlignment="Center" 
+               Target="{Binding ElementName=comboAudioDevs}" />
+        <ComboBox Name="comboAudioDevs" Margin="10,0,0,0" Width="190"  VerticalAlignment="Center" />
+
+        <StackPanel Orientation="Horizontal" Margin="0, 20, 0, 0">
+            <Button Name="buttonReset" Width="50" Margin="0, 0, 0, 0" Content="_Reset" VerticalAlignment="Center" Click="buttonReset_Click" />
+            <Button Name="buttonOK" Width="50" Margin="20, 0, 0, 0" Content="OK" VerticalAlignment="Center" IsDefault="True" Click="buttonOK_Click" />
+            <Button Name="buttonCancel" Width="50" Margin="20, 0, 0, 0" Content="Cancel" VerticalAlignment="Center" IsCancel="True" />
+        </StackPanel>
+    </StackPanel>
+</Window>

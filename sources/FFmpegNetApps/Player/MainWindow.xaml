@@ -1,0 +1,324 @@
+﻿<Window x:Class="Player.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mep="clr-namespace:FFmpegNetPlayer;assembly=FFmpegNetPlayer"
+        xmlns:tls="clr-namespace:CommonCtrls;assembly=CommonCtrls"
+        xmlns:loc="clr-namespace:Player"
+        
+        Title="FFmpeg Player" 
+        MinWidth="480" MinHeight="536"  ResizeMode="CanResizeWithGrip" SizeToContent="WidthAndHeight"
+        Closed="Window_Closed" Loaded="Window_Loaded" Closing="Window_Closing">
+
+    <Window.CommandBindings>
+        <CommandBinding Command="loc:AppCommands.Help" Executed="cmdHelp_Executed" />
+        <CommandBinding Command="loc:AppCommands.Docs" Executed="cmdDocs_Executed" />
+
+        <CommandBinding Command="loc:AppCommands.LoadUnload" Executed="cmdLoadUnload_Executed" />
+
+        <CommandBinding Command="loc:AppCommands.Mute"    Executed="cmdMute_Executed" />
+        <CommandBinding Command="loc:AppCommands.VolDown" Executed="cmdVolDown_Executed" />
+        <CommandBinding Command="loc:AppCommands.VolUp"   Executed="cmdVolUp_Executed" />
+
+        <CommandBinding Command="loc:AppCommands.NextFrame" Executed="buttonNextFrame_Click" />
+        <CommandBinding Command="loc:AppCommands.PrevFrame" Executed="buttonPrevFrame_Click" />
+
+        <CommandBinding Command="loc:AppCommands.PlayPause" Executed="cmdPlayPause_Executed" />
+        <CommandBinding Command="loc:AppCommands.Stop"      Executed="buttonStop_Click" />
+        <CommandBinding Command="loc:AppCommands.SaveFrame" Executed="buttonSaveFrame_Click" />
+        <CommandBinding Command="loc:AppCommands.Rewind"    Executed="cmdRewind_Executed" />
+        <CommandBinding Command="loc:AppCommands.Fps"       Executed="cmdFps_Executed" />
+        <CommandBinding Command="loc:AppCommands.Pix2Pix"   Executed="cmdPix2Pix_Executed" />
+
+    </Window.CommandBindings>
+
+    <Grid Background="DarkGray">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="280*" />
+            <RowDefinition Height="80" />
+            <RowDefinition Height="248" />
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="170" />
+        </Grid.ColumnDefinitions>
+
+        <!-- video control -->
+        <ScrollViewer Name="scrollVideo" Margin="4, 4, 4, 2" Background="#444444" 
+                VerticalScrollBarVisibility="Disabled" HorizontalScrollBarVisibility="Disabled">
+            <mep:VideoControl x:Name="videoControl" />
+        </ScrollViewer>
+
+        <!-- oscillogram -->
+        <mep:OscControl x:Name="oscControl" Grid.Row="1" Background="#FF929292" Margin="6,2,5,4"/>
+        <mep:OscCursor x:Name="oscCursor" Grid.Row="1" Margin="5,2,5,4"/>
+
+        <StackPanel Orientation="Vertical" Grid.Row="1" Grid.Column="1" Margin="6,6,6,0" Height="64"
+                    VerticalAlignment="Top" Background="LightGray" >
+            <StackPanel Margin="8,8,8,0">
+                <CheckBox Name="checkBoxOsc" Content="Audio osci_llogram" 
+                      ToolTip="Oscilogramm for the audio track"
+                      Checked="checkBoxOsc_Checked" Unchecked="checkBoxOsc_Unchecked" />
+                <StackPanel Orientation="Horizontal" Margin="-2,4,0,4">
+                    <Label Content="Osc. _zoom:"  VerticalAlignment="Center" 
+                           Target="{Binding ElementName=comboOscZoom}"/>
+                    <ComboBox Name="comboOscZoom" Width="40" Height="20" VerticalAlignment="Center" 
+                           SelectionChanged="comboOscZoom_SelectionChanged" />
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
+
+        <!--  grid raw 2 -->
+        <StackPanel Grid.Row="2" Background="LightGray">
+            <mep:PlayerSliderPos x:Name="sliderPosition" Height="12" />
+            
+            <ScrollViewer VerticalScrollBarVisibility="Disabled" HorizontalScrollBarVisibility="Auto">
+                <StackPanel>
+                    <!-- player -->
+                    <StackPanel Name="panelPlayer" Background="Gainsboro" Orientation="Horizontal" >
+
+                        <ToggleButton Name="buttonLoadUnload" Width="48" Content="_Load" Margin="4, 0, 0, 0" VerticalAlignment="Center"
+                                ToolTip="{x:Static loc:ResStr1.TpBtnLoadUnload}"
+                                Checked="buttonLoad_Checked" Unchecked="buttonLoad_Unchecked" />
+
+                        <StackPanel Orientation="Horizontal" Margin="2, 2, 0, 2">
+
+                            <tls:SkinToggleButton4 x:Name="buttonPlayPause"
+                                Width="24" Height="24" VerticalAlignment="Center"
+                                OverBrush="LightCyan" PressedBrush="Bisque"
+                                SkinNormal="Images/btn-play.png" SkinDisabled="Images/btn-play_D.png"
+                                SkinNormalChk="Images/btn-pause.png" SkinDisabledChk="Images/btn-pause_D.png"                         
+                                ToolTip="{x:Static loc:ResStr1.TpBtnPlayPause}"
+                                Checked="buttonPlayPause_Checked" Unchecked="buttonPlayPause_Unchecked" />
+
+                            <tls:SkinButton2 x:Name="buttonStop" 
+                                Width="24" Height="24" VerticalAlignment="Center" 
+                                OverBrush="LightCyan" PressedBrush="Bisque"
+                                SkinNormal="Images/btn-stop.png" SkinDisabled="Images/btn-stop_D.png"
+                                ToolTip="{x:Static loc:ResStr1.TpBtnStop}"
+                                Click="buttonStop_Click" />
+                        </StackPanel>
+                        
+                        <Label Name="labelCurrTime" Margin="4, 0, 0, 0" Padding="0" Width="54" VerticalAlignment="Center" Content="00:00:00"
+                               VerticalContentAlignment="Center" FontSize="14" FontWeight="SemiBold" Foreground="DarkRed" />
+                        <Label Name="labelPosTracker" Margin="-6,-3,0,0" Padding="0,0,0,0" Width="44" Content="00:00:00" 
+                               VerticalContentAlignment="Top" VerticalAlignment="Top" Background="NavajoWhite" Foreground="Blue" />
+
+                        <tls:SkinToggleButton4 x:Name="buttonMute"
+                            Margin="-4,0,0,0" Height="24" Width="24" VerticalAlignment="Center"
+                            OverBrush="LightCyan" PressedBrush="Bisque"
+                            SkinNormal="Images/btn-volm.png" SkinDisabled="Images/btn-volm.png"
+                            SkinNormalChk="Images/btn-mute.png" SkinDisabledChk="Images/btn-mute.png"
+                            ToolTip="{x:Static loc:ResStr1.TpBtnMute}"
+                            Checked="buttonMute_Checked" Unchecked="buttonMute_Unchecked" />
+                        
+                        <mep:PlayerSliderSndVol x:Name="sliderSoundVolume" 
+                            Width="64" Height="10" Margin="4,0,0,0" VerticalAlignment="Center" 
+                            ThumbCornRad="3" ThumbRelWidth="1.5"  SlotRelHeight="0.4"             
+                            ToolTip="{x:Static loc:ResStr1.TpSldVolume}"
+                            ValueChanged="sliderSoundVolume_ValueChanged"/>
+
+                        <StackPanel Orientation="Horizontal" Margin="30,0,0,0" >
+                            <tls:SkinButton2 x:Name="buttonSaveFrame" 
+                                Margin="0, 0, 0, 0" Width="24" Height="24" VerticalAlignment="Center" 
+                                OverBrush="LightCyan" PressedBrush="Bisque"
+                                SkinNormal="Images/btn-save.png" SkinDisabled="Images/btn-save_D.png"
+                                ToolTip="{x:Static loc:ResStr1.TpBtnSaveFrame}"
+                                Click="buttonSaveFrame_Click" />
+
+                            <tls:SkinButton2 x:Name="buttonPrevFrame" 
+                                Margin="0, 0, 0, 0" Width="16" Height="16" VerticalAlignment="Center" 
+                                OverBrush="LightCyan" PressedBrush="Bisque"
+                                SkinNormal="Images/btn-prev.png" SkinDisabled="Images/btn-prev_D.png"
+                                ToolTip="{x:Static loc:ResStr1.TpBtnPrevFrame}"
+                                Click="buttonPrevFrame_Click" />
+
+                            <tls:SkinButton2 x:Name="buttonNextFrame" 
+                                Margin="0, 0, 0, 0" Width="16" Height="16" VerticalAlignment="Center" 
+                                OverBrush="LightCyan" PressedBrush="Bisque"
+                                SkinNormal="Images/btn-next.png" SkinDisabled="Images/btn-next_D.png"
+                                ToolTip="{x:Static loc:ResStr1.TpBtnNextFrame}"
+                                Click="buttonNextFrame_Click" />
+                         </StackPanel>
+
+                        <ComboBox Name="comboFps" Width="47" Margin="4,0,0,0" VerticalAlignment="Center" 
+                            ToolTip="{x:Static loc:ResStr1.TpComboFramerate}" 
+                            SelectionChanged="comboFps_SelectionChanged" />
+
+                        <tls:SkinToggleButton4 x:Name="buttonRewind"
+                                Margin="0,0,0,0" Height="16" Width="16" VerticalAlignment="Center"
+                                OverBrush="LightCyan" PressedBrush="Bisque"
+                                SkinNormal="Images/btn-rewind.png" SkinDisabled="Images/btn-rewind_D.png"
+                                SkinNormalChk="Images/btn-rewind-stop.png" SkinDisabledChk="Images/btn-rewind_D.png"
+                                ToolTip="{x:Static loc:ResStr1.TpBtnRewind}"
+                                Checked="buttonRewind_Checked" Unchecked="buttonRewind_Unchecked" />
+                        
+                        <CheckBox Name="checkBoxPix2Pix" Content="Pix2Pix" Margin="24,0,0,0" VerticalAlignment="Center"
+                            ToolTip="{x:Static loc:ResStr1.TpBtnPix2Pix}"
+                            Checked="checkBoxPix2Pix_Checked" Unchecked="checkBoxPix2Pix_Unchecked" />
+                   
+                    </StackPanel>
+                    <!-- end player -->
+
+                    <StackPanel IsEnabled="{Binding Path=Unloaded}" >
+
+                        <StackPanel Orientation="Horizontal" Margin="0,4,0,0" >
+                            <Label Content="Source t_ype:" Margin="2,0,0,0"
+                                   Target="{Binding ElementName=comboSrcType}" />
+                            <ComboBox Name="comboSrcType" Margin="2,0,0,0" Width="128"  VerticalAlignment="Center" 
+                                 SelectionChanged="comboSrcType_SelectionChanged" />
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Margin="0,2,0,0" >
+                            <Label Content="Pat_h/Url:" Margin="2,0,0,0"
+                                   Target="{Binding ElementName=comboUrl}"/>
+                            <StackPanel Orientation="Horizontal" >
+                                <ComboBox Name="comboUrl" Width="448" Margin="4,0,0,0"  VerticalAlignment="Center" IsEditable="True" />
+                                <Button Name="buttonBrowse" Content="_Browse..." Margin="3,0,4,0" Padding="4,0,4,0" VerticalAlignment="Center" 
+                                    Click="buttonFileDialog_Click"/>
+                            </StackPanel>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" >
+                            <Label Margin="2,0,0,0" Content="F_ormat:" VerticalAlignment="Center"
+                                   Target="{Binding ElementName=comboFormats}"/>
+                            <ComboBox Name="comboFormats" Width="350" Margin="4,0,0,0"  VerticalAlignment="Center" />
+                            <CheckBox Name="checkBoxSrcSdp" Content="RT_P via *.sdp file" Margin="40,0,0,0" VerticalAlignment="Center" 
+                                      Checked="checkBoxSrcSdp_Checked" Unchecked="checkBoxSrcSdp_Unchecked" />
+                        </StackPanel>
+                        
+                        <StackPanel Orientation="Horizontal" Margin="0, 2, 0, 0">
+                            <Label Content="_Video decoder:" Margin="2,0,0,0"
+                                   Target="{Binding ElementName=comboDecVid}"/>
+                            <ComboBox Name="comboDecVid" Margin="2,0,0,0" Width="180"  VerticalAlignment="Center" />
+                            
+                            <Label Content="_Audio decoder:" Margin="16,0,0,0"
+                                   Target="{Binding ElementName=comboDecAud}"/>
+                            <ComboBox Name="comboDecAud" Margin="2,0,0,0" Width="180"  VerticalAlignment="Center" />
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Margin="0, 2, 0, 0">
+                            <Label Content="_GPU decoder:" Margin="2, 0, 0, 0"  VerticalAlignment="Center" 
+                                   Target="{Binding ElementName=comboGpu}"/>
+                            <ComboBox Name="comboGpu" Width="72" VerticalAlignment="Center" />
+
+                            <Label Content="H_W accel:" Margin="4, 0, 0, 0" VerticalAlignment="Center" 
+                                   Target="{Binding ElementName=comboHWAccel}"/>
+                            <ComboBox Name="comboHWAccel" Width="80" VerticalAlignment="Center" />
+
+                            <Label Content="_Threads:" Margin="4, 0, 0, 0" VerticalAlignment="Center" 
+                                   Target="{Binding ElementName=comboThreads}"/>
+                            <ComboBox Name="comboThreads" Width="72" VerticalAlignment="Center" />
+                        </StackPanel>
+
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal"  Margin="0,2,0,0">
+                        <Label Name="labelFiltVid" Content="V_ideo filters:" Margin="2,0,0,0" VerticalAlignment="Center" />
+                        <ComboBox Name="comboFiltVid" Margin="0,0,0,0" Width="182"  VerticalAlignment="Center" IsEnabled="{Binding Path=Unloaded}" />
+                        <Button Name="buttonFilterCmdVideo" Width="20" Height="21" Content="..." Margin="2,0,0,0" VerticalAlignment="Center"
+                            Click="buttonFilterCmdVideo_Click"/>
+
+                        <Label Name="labelFiltAud" Content="A_udio filters:" Margin="6,0,0,0" VerticalAlignment="Center" IsEnabled="{Binding Path=Unloaded}" />
+                        <ComboBox Name="comboFiltAud" Margin="0,0,0,0" Width="182"  VerticalAlignment="Center" IsEnabled="{Binding Path=Unloaded}" />
+                        <Button Name="buttonFilterCmdAudio" Width="20" Height="21" Content="..." Margin="2,0,2,0" VerticalAlignment="Center"  
+                            Click="buttonFilterCmdAudio_Click"/>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" Margin="0, 4, 0, 1" >
+                        <Label Margin="2, 0, 0, 0"  Content="Rend params:"  Padding="2,0,2,0" VerticalAlignment="Center"/>
+                        <Label Name="labelRendParams" Width="300" Margin="4, 0, 0, 0" Padding="2,0,2,0" VerticalAlignment="Center" 
+                               Content="" Foreground="DarkBlue" Background="Linen"/>
+                        <Label Name="labelBenchmark" Margin="2, 0, 0, 0" Padding="2,0,2,0" VerticalAlignment="Center" 
+                               Content="Benchmark"  Foreground="Maroon" Background="MintCream" />
+                    </StackPanel>
+
+                </StackPanel>
+            </ScrollViewer>
+         </StackPanel>
+        <!--  grid raw 2 -->
+
+        <Label Grid.Column="1" Content="Help - F1     Docs - Ctrl+F1"  Margin="-2,0,0,0" Padding="10,0,0,0" VerticalAlignment="Top" HorizontalAlignment="Stretch" 
+               FontSize="12" FontWeight="Bold" Foreground="DarkOliveGreen"  Background="Linen" />
+        <ScrollViewer Name="scrollSrcInfo" Grid.Column="1" Margin="0,16,0,4" VerticalScrollBarVisibility="Disabled" HorizontalScrollBarVisibility="Disabled">
+            <StackPanel >
+                <Label Content="Source/decoder info" HorizontalAlignment="Left" Margin="16,6,0,0" FontWeight="SemiBold"/>
+                <StackPanel Name="panelSrcInfo">
+                    <Label Content="Video" HorizontalAlignment="Left" Margin="60,2,0,0"/>
+                    <TextBlock Name="textVideoInfo" Text="" Margin="10,0,0,0" Height="66"/>
+                    <Label Content="Audio" HorizontalAlignment="Left"  Margin="60,2,0,0"/>
+                    <TextBlock Name="textAudioInfo" Text="" Margin="10,0,0,0" Height="66"/>
+                    <TextBlock Name="textDurInfo" Text=""  Margin="2,8,0,0"/>
+                    <TextBlock Name="textSizeInfo" Text="" Margin="2,4,0,0"/>
+                    <Button Width="80" HorizontalAlignment="Left" Margin="50,16,0,2"  Content="De_tailed..." 
+                            Click="srcInfoButton_Click" />
+                </StackPanel>
+            </StackPanel>
+        </ScrollViewer>
+
+        <StackPanel Grid.Row="2" Grid.Column="1" Margin="6,0,6,0" >
+            <StackPanel VerticalAlignment="Top" Background="LightGray" IsEnabled="{Binding Path=UnloadedFile}">
+                <StackPanel Margin="8,8,8,6">
+                    <CheckBox Name="checkBoxBenchmark" Content="Video ben_chmark" VerticalAlignment="Center" 
+                            Unchecked="checkBoxBenchmark_Unchecked" />
+                    <CheckBox Name="checkBoxSkipVideoRend" Content="No frame _rendering" Margin="0,4,0,0" VerticalAlignment="Center"
+                            IsEnabled="{Binding ElementName=checkBoxBenchmark, Path=IsChecked}"/>
+                    <Button Name="buttonPlayerOpts" Content="_X-options..." Margin="0,8,0,2" Width="80" VerticalAlignment="Center"
+                            Click="buttonPlayerOpts_Click" />
+                </StackPanel>
+            </StackPanel>
+
+            <StackPanel Name="panelBcs" Margin="0,8,0,0" Background="#DCDCDC" VerticalAlignment="Top" IsEnabled="False">
+
+                <StackPanel Margin="8,0,0,0" IsEnabled="{Binding ElementName=checkBox_BCS, Path=IsChecked}">
+                    
+                    <StackPanel Margin="0,8,0,0" >
+                        <Label Content="_Brightness:" Padding="0,0,0,0" Target="{Binding ElementName=sliderB}"/>
+                        <StackPanel Orientation="Horizontal">
+                            <Slider Name="sliderB" Width="96" VerticalAlignment="Center" 
+                                Minimum="-1" Maximum="1" Value="0" SmallChange="0.1" LargeChange="0.4"
+                                ValueChanged="sliderB_ValueChanged" />
+                            <TextBlock Name="textSliderB"  Margin="8,0,0,0"  Text="0" VerticalAlignment="Center" />
+                        </StackPanel>
+                    </StackPanel>
+
+                    <StackPanel  Margin="0,0,0,0" >
+                        <Label Content="_Contrast:" Padding="0,0,0,0" Target="{Binding ElementName=sliderC}"/>
+                        <StackPanel Orientation="Horizontal">
+                            <Slider Name="sliderC" Width="96" VerticalAlignment="Center" 
+                                Minimum="-1" Maximum="1" Value="0" SmallChange="0.1" LargeChange="0.4"
+                                ValueChanged="sliderC_ValueChanged" />
+                            <TextBlock Name="textSliderC"  Margin="8,0,0,0"  Text="0"   VerticalAlignment="Center" />
+                        </StackPanel>
+                    </StackPanel>
+
+                    <StackPanel  Margin="0,0,0,0" >
+                        <Label Content="S_aturation:" Padding="0,0,0,0" Target="{Binding ElementName=sliderS}"/>
+                        <StackPanel Orientation="Horizontal">
+                            <Slider Name="sliderS" Width="96" VerticalAlignment="Center" 
+                                Minimum="-1" Maximum="1" Value="0" SmallChange="0.1" LargeChange="0.4"
+                                ValueChanged="sliderS_ValueChanged" />
+                            <TextBlock Name="textSliderS"  Margin="8,0,0,0"  Text="0"  VerticalAlignment="Center" />
+                        </StackPanel>
+                    </StackPanel>
+                    
+                </StackPanel>
+
+                <StackPanel  Orientation="Horizontal" Margin="2,10,0,6" >
+                    <CheckBox Name="checkBoxBcs" Content="_Enabled"   VerticalAlignment="Center" 
+                        Checked="checkBox_BCS_Checked" Unchecked="checkBox_BCS_Unchecked" />
+                    <Button Width="40" Content="_Reset" Margin="30,0,0,0"   VerticalAlignment="Center" 
+                            IsEnabled="{Binding ElementName=checkBox_BCS, Path=IsChecked}"
+                            Click="resetBCS_Click"/>
+                </StackPanel>
+
+            </StackPanel>
+            
+            <Button Name="btnTest" Content="test" Width="32" Height="16" HorizontalAlignment="Left" Padding="0,0,0,0"
+                    Click="btnTest_Click"/>
+
+        </StackPanel>
+        
+    </Grid>
+    
+</Window>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<!-- Player: audio filters -->
+
+<Filters>
+
+  <Filter DisplayName="Echo">
+    aecho=0.8:0.88:60:0.4
+  </Filter>
+
+  <Filter DisplayName="Resampler to 11025 mono">
+    aformat=sample_rates=11025:channel_layouts=mono
+  </Filter>
+
+  <Filter DisplayName="Gain x2">
+    aeval=val(ch)*2:c=same
+  </Filter>
+
+</Filters>

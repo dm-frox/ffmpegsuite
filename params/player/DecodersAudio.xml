@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<!-- Player: audio decoders -->
+
+<Decoders>
+
+  <Decoder DisplayName="AAC fixed" Name="aac_fixed" />
+
+  <Decoder DisplayName="MP3 fixed" Name="mp3" />
+
+</Decoders>

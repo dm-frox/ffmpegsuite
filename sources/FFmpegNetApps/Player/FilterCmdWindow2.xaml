@@ -1,0 +1,54 @@
+﻿<Window x:Class="Player.FilterCmdWindow2"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Player"
+        mc:Ignorable="d"
+        Background="Gainsboro"
+        Title="Drawtext filter commands" 
+        SizeToContent="WidthAndHeight" ResizeMode="NoResize" 
+        WindowStartupLocation="CenterOwner" ShowInTaskbar="False" Closed="Window_Closed">
+    <StackPanel Margin="10, 10, 10, 10">
+        <Label Content="_Text:" 
+               Target="{Binding ElementName=textText}" />
+        <TextBox Name="textText" Width="570" Height="72" Margin="4, 0, 0, 0" VerticalAlignment="Center" HorizontalAlignment="Left" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Auto"/>
+        <StackPanel Margin="0,8,0,0" Orientation="Horizontal" >
+            <Label Content="Font _size:" 
+                   Target="{Binding ElementName=sliderSize}" />
+            <Slider Name="sliderSize" Width="300" VerticalAlignment="Center" 
+                    ValueChanged="sliderSize_ValueChanged"/>
+            <TextBlock Name="textSize"  Margin="16,0,0,0"  Text="10" VerticalAlignment="Center"/>
+        </StackPanel>
+        <StackPanel Margin="0,8,0,0" Orientation="Horizontal" >
+            <Label Content="Font _color:" 
+                   Target="{Binding ElementName=comboColor}" />
+            <ComboBox Name="comboColor" Width="100" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="0,0,0,0" />
+        </StackPanel>
+        
+        <StackPanel Margin="0,8,0,0" >
+            <StackPanel Margin="0,0,0,0" Orientation="Horizontal" >
+                <Label Content="_X:" 
+                       Target="{Binding ElementName=sliderX}" />
+                <Slider Name="sliderX" Width="500" VerticalAlignment="Center" 
+                        ValueChanged="sliderX_ValueChanged" />
+                <TextBlock Name="textX"  Margin="16,0,0,0"  Text="10" VerticalAlignment="Center"/>
+            </StackPanel>
+            <StackPanel Margin="0,0,0,0" Orientation="Horizontal" >
+                <Label Content="_Y:" 
+                       Target="{Binding ElementName=sliderY}"/>
+                <Slider Name="sliderY" Width="500" VerticalAlignment="Center" 
+                        ValueChanged="sliderY_ValueChanged" />
+                <TextBlock Name="textY"  Margin="16,0,0,0"  Text="10" VerticalAlignment="Center"/>
+            </StackPanel>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" Margin="0, 16, 10, 0" HorizontalAlignment="Right">
+            <Button Name="buttonApply" Width="54" Content="_Apply" IsDefault="True" VerticalAlignment="Center" 
+                    Click="buttonApply_Click" />
+            <Button Name="buttonExit" Width="54" Margin="140, 0, 0, 0" Content="Close" VerticalAlignment="Center" IsCancel="True" 
+                    Click="buttonExit_Click" />
+        </StackPanel>
+
+    </StackPanel>
+</Window>

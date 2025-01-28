@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <ProjectGuid>{60797A41-CFB9-495F-AC0D-4A7B3AB75B5D}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>FFmpegCoreLib</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level4</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <AdditionalIncludeDirectories>../../../ffmpeg/dev/x64/include;../FFmpegWrapper;../CommonToolLib;</AdditionalIncludeDirectories>
+      <DisableLanguageExtensions>false</DisableLanguageExtensions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level4</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <AdditionalIncludeDirectories>../../../ffmpeg/dev/x64/include;../FFmpegWrapper;../CommonToolLib;</AdditionalIncludeDirectories>
+      <DisableLanguageExtensions>false</DisableLanguageExtensions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="ChannLayout.h" />
+    <ClInclude Include="CodecBase.h" />
+    <ClInclude Include="CodecDec.h" />
+    <ClInclude Include="CodecDecDef.h" />
+    <ClInclude Include="CodecDecParams.h" />
+    <ClInclude Include="CodecEnc.h" />
+    <ClInclude Include="CodecDecGpu.h" />
+    <ClInclude Include="CodecDecHW.h" />
+    <ClInclude Include="CodecTools.h" />
+    <ClInclude Include="CommonConsts.h" />
+    <ClInclude Include="CodecDecIface.h" />
+    <ClInclude Include="DeviceList.h" />
+    <ClInclude Include="DictTools.h" />
+    <ClInclude Include="ffmpeg.h" />
+    <ClInclude Include="ffmpeg_fwd.h" />
+    <ClInclude Include="Filter.h" />
+    <ClInclude Include="FilterGraph.h" />
+    <ClInclude Include="FilterTools.h" />
+    <ClInclude Include="FormatHolder.h" />
+    <ClInclude Include="FrameBackup.h" />
+    <ClInclude Include="FrameConv.h" />
+    <ClInclude Include="FrameConvAudio.h" />
+    <ClInclude Include="FrameConvVideo.h" />
+    <ClInclude Include="FrameDataIface.h" />
+    <ClInclude Include="FrameHub.h" />
+    <ClInclude Include="FrameHubTools.h" />
+    <ClInclude Include="FramePool.h" />
+    <ClInclude Include="FramePoolItem.h" />
+    <ClInclude Include="FrameProcIface.h" />
+    <ClInclude Include="FrameQueueEx.h" />
+    <ClInclude Include="FrameTools.h" />
+    <ClInclude Include="Logger.h" />
+    <ClInclude Include="MediaTypeHolder.h" />
+    <ClInclude Include="MetadataHolder.h" />
+    <ClInclude Include="MetadataTools.h" />
+    <ClInclude Include="Misc.h" />
+    <ClInclude Include="MultiString.h" />
+    <ClInclude Include="NonCopyable.h" />
+    <ClInclude Include="OptionTools.h" />
+    <ClInclude Include="PacketTools.h" />
+    <ClInclude Include="pch.h" />
+    <ClInclude Include="SeekCtrl.h" />
+    <ClInclude Include="StrBuilder.h" />
+    <ClInclude Include="StreamBase.h" />
+    <ClInclude Include="StreamInfo.h" />
+    <ClInclude Include="StreamListBase.h" />
+    <ClInclude Include="StreamListR.h" />
+    <ClInclude Include="StreamListW.h" />
+    <ClInclude Include="StreamReader.h" />
+    <ClInclude Include="StreamTime.h" />
+    <ClInclude Include="StreamWriter.h" />
+    <ClInclude Include="SubtitDump.h" />
+    <ClInclude Include="TimestampCalc.h" />
+    <ClInclude Include="Demuxer.h" />
+    <ClInclude Include="DemuxBase.h" />
+    <ClInclude Include="Muxer.h" />
+    <ClInclude Include="MuxBase.h" />
+    <ClInclude Include="VectorPtr.h" />
+    <ClInclude Include="Version.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="ChannLayout.cpp" />
+    <ClCompile Include="CodecBase.cpp" />
+    <ClCompile Include="CodecDecExt.cpp" />
+    <ClCompile Include="CodecDec.cpp" />
+    <ClCompile Include="CodecDecParams.cpp" />
+    <ClCompile Include="CodecEnc.cpp" />
+    <ClCompile Include="CodecDecGpu.cpp" />
+    <ClCompile Include="CodecDecHW.cpp" />
+    <ClCompile Include="CodecTools.cpp" />
+    <ClCompile Include="CodecDecDef.cpp" />
+    <ClCompile Include="DeviceList.cpp" />
+    <ClCompile Include="DictTools.cpp" />
+    <ClCompile Include="ffmpeg.cpp" />
+    <ClCompile Include="Filter.cpp" />
+    <ClCompile Include="FilterGraph.cpp" />
+    <ClCompile Include="FilterTools.cpp" />
+    <ClCompile Include="FormatHolder.cpp" />
+    <ClCompile Include="FrameBackup.cpp" />
+    <ClCompile Include="FrameConv.cpp" />
+    <ClCompile Include="FrameConvAudio.cpp" />
+    <ClCompile Include="FrameConvVideo.cpp" />
+    <ClCompile Include="FrameHub.cpp" />
+    <ClCompile Include="FrameHubTools.cpp" />
+    <ClCompile Include="FramePool.cpp" />
+    <ClCompile Include="FramePoolItem.cpp" />
+    <ClCompile Include="FrameQueueEx.cpp" />
+    <ClCompile Include="FrameTools.cpp" />
+    <ClCompile Include="Logger.cpp" />
+    <ClCompile Include="MediaTypeHolder.cpp" />
+    <ClCompile Include="MetadataHolder.cpp" />
+    <ClCompile Include="Misc.cpp" />
+    <ClCompile Include="MultiString.cpp" />
+    <ClCompile Include="OptionTools.cpp" />
+    <ClCompile Include="pch.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="SeekCtrl.cpp" />
+    <ClCompile Include="StrBuilder.cpp" />
+    <ClCompile Include="StreamBase.cpp" />
+    <ClCompile Include="StreamReader.cpp" />
+    <ClCompile Include="StreamReader_conn.cpp" />
+    <ClCompile Include="StreamReader_decod.cpp" />
+    <ClCompile Include="StreamTime.cpp" />
+    <ClCompile Include="StreamWriter.cpp" />
+    <ClCompile Include="SubtitDump.cpp" />
+    <ClCompile Include="TimestampCalc.cpp" />
+    <ClCompile Include="Demuxer.cpp" />
+    <ClCompile Include="DemuxBase.cpp" />
+    <ClCompile Include="Demuxer_pump.cpp" />
+    <ClCompile Include="Demuxer_seek.cpp" />
+    <ClCompile Include="Muxer.cpp" />
+    <ClCompile Include="MuxBase.cpp" />
+    <ClCompile Include="Version.cpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

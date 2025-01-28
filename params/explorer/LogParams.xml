@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<!-- Explorer: log params
+Params values:
+wrapper, options - max log level
+0 None
+1 Error
+2 Warning
+3 Info
+4 Verbose
+5 Debug
+6 Trace
+
+options - log flags
+0 None
+1 FlushLine, 
+2 ThreadLab,
+3 FlushLine+ThreadLab
+-->
+
+<LogParams wrapper="3" ffmpeg="3" options="0" />

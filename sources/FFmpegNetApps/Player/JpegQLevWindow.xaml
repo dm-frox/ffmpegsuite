@@ -1,0 +1,22 @@
+﻿<Window x:Class="Player.JpegQLevWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Player"
+        mc:Ignorable="d"
+        Title="Jpeg quality level" ResizeMode="NoResize"  SizeToContent="WidthAndHeight" 
+        ShowInTaskbar="False" WindowStartupLocation="CenterOwner"  Background="#F0F0F0">
+    <StackPanel>
+        <Label Content="Jpeg quality level (1 - 100):" />
+        <StackPanel Orientation="Horizontal" Margin="4,20,10,16">
+            <Slider Name="sliderQLev" Width="120" Margin="0,0,0,0" VerticalAlignment="Center" 
+                Minimum="1" Maximum="100" Value="75" LargeChange="15" SmallChange="5" ValueChanged="sliderQLev_ValueChanged" />
+            <TextBlock Name="textSlider"  Width="24" Margin="8,0,0,0"  Text="000" VerticalAlignment="Center" />
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Margin="0, 10, 0, 10" HorizontalAlignment="Center">
+            <Button Name="buttonOK" Width="50" Margin="0, 0, 0, 0" Content="OK" VerticalAlignment="Center" IsDefault="True" Click="buttonOK_Click" />
+            <Button Name="buttonCancel" Width="50" Margin="30, 0, 0, 0" Content="Cancel" VerticalAlignment="Center" IsCancel="True" />
+        </StackPanel>
+    </StackPanel>
+</Window>

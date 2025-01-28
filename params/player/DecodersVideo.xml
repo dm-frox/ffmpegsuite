@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<!-- Player: video decoders -->
+
+<Decoders>
+
+  <Decoder DisplayName="AV1 libaom-av1" Name="libaom-av1" />
+
+  <Decoder DisplayName="vp9 libvpx" Name="libvpx-vp9" />
+
+  <Decoder DisplayName="h264 threads 2" Name="h264">
+    <Option Key="threads" Value="2" />
+  </Decoder>
+
+  <Decoder DisplayName="h264 QSV" Name="h264_qsv" Format="nv12" />
+
+</Decoders>

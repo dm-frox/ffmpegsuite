@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<!-- Player: formats -->
+<Formats>
+
+  <Format DisplayName="Video RAW (32 bpp, 320x240, 10 fps)" Name="rawvideo">
+    <Option Key="pixel_format" Value="bgra"/>
+    <Option Key="video_size" Value="320x240"/>
+    <Option Key="framerate" Value="10"/>
+  </Format>
+
+  <Format DisplayName="Audio RAW (PCM16, mono, 11025)" Name="s16le">
+    <Option Key="channels" Value="1"/>
+    <Option Key="sample_rate" Value="11025"/>
+  </Format>
+
+  <Format DisplayName="Concatenate files" Name="concat">
+    <Option Key="safe" Value="0"/>
+  </Format>
+
+</Formats>
+
