@@ -1,7 +1,9 @@
 # FFmpeg Suite
 Autor: Dmitry Ponomarev
 
-Contact: [dmfrox219@mail.ru](mailto:dmfrox219@mail.ru)
+Contact: dmfrox219@mail.ru
+
+Version 1.0
 
 [eng](#eng)
 

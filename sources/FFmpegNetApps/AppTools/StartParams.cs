@@ -20,7 +20,7 @@ namespace AppTools
         const string RelRootDev = @"..\..\..\..\..\.."; // <app_root>\sources\FFmpegNetApps\<app_name>\bin\<platform_tag>\<config_dir>
         const string RelRoot    = @"..\..";             // <app_root>\bin\<platform_tag>
 
-        const string CompanyName     = "dm_frox";
+        const string CompanyName     = "dm-frox";
         const string ProductName     = "FFmpegSuite";
         const string LogSubFolder    = "_LOGS";
         const string DataSubFolder   = "data";
