@@ -28,7 +28,7 @@ namespace FFmpegNetAux
 
         public int Height { get => m_Height; set => m_Height = value; }
 
-        public string PixelFormats => m_PixelFormats;
+        public string PixelFormats { get => m_PixelFormats; set => m_PixelFormats = value; }
 
         public string FilterStr { get => m_FilterStr; set => m_FilterStr = value; }
 

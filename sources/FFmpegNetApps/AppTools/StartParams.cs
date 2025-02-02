@@ -42,7 +42,7 @@ namespace AppTools
 
 // FFmpegWrapper.dll location relatively <app_root>
 
-        static readonly string ConfigDir = IsDebug ? @"Debug" : @"Release";
+        static readonly string ConfigDir = IsDebug ? "Debug" : "Release";
 
         static readonly string PlatformSubDir   = Is64 ? X64BinSubFolder : string.Empty;
 
@@ -111,18 +111,10 @@ namespace AppTools
         public static string GetAppTitle(string appName, bool firstInst)
         {
             var tit = appName;
-            if (!Is64)
-            {
-                tit += (" - ") + PlatformTag;
-            }
-            if (IsDebug) 
-            {
-                tit += " (Debug)";
-            }
-            if (!firstInst)
-            {
-                tit += " (#)";
-            }
+
+            tit += !Is64 ? (" - " + PlatformTag) : string.Empty;
+            tit += IsDebug ? " (Debug)" : string.Empty;
+            tit += !firstInst ? " (#)" : string.Empty;
             return tit;
         }
 

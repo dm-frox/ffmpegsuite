@@ -273,16 +273,6 @@ namespace Transcoder
                 if (!CanWrite())
                     ret = false;
             }
-            //if (ret)
-            //{
-            //    if ((bool)checkBoxVideo.IsChecked && comboEncVideo.SelectedIndex < 0)
-            //        ret = false;
-            //}
-            //if (ret)
-            //{
-            //    if ((bool)checkBoxAudio.IsChecked && comboEncAudio.SelectedIndex < 0)
-            //        ret = false;
-            //}
             return ret;
         }
 
@@ -337,7 +327,10 @@ namespace Transcoder
             var tp = (PrmEncVideo)comboEncVideo.SelectedItem;
             if (tp != null)
             {
-                frm = new FrameParamsVideo() { Width = tp.Width, Height = tp.Height, FilterStr = tp.FilterStr, FpsFactor = tp.Fps };
+                frm = new FrameParamsVideo() { 
+                    Width = tp.Width, Height = tp.Height,
+                    PixelFormats = tp.PixelFormat, FpsFactor = tp.Fps,
+                    FilterStr = tp.FilterStr };
                 enc = new EncoderParamsVideo(tp.Encoder) { Bitrate = tp.Bitrate, Preset = tp.Preset, Crf = tp.Crf };
                 if (tp.HasOptions)
                 {
