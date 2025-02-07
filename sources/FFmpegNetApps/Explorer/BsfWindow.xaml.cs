@@ -64,8 +64,8 @@ namespace Explorer
                     textName.Text = pi.Name;
                     textCodecs.Text = pi.CodecIds;
 
-                    textPrivOptions.Text = pi.PrivOptions;
-                    buttonPrivOpts.IsEnabled = !ListItemOpt.IsEmptyEx(textPrivOptions.Text);
+                    textPrivOpts.Text = pi.PrivOptions;
+                    buttonPrivOpts.IsEnabled = !ListItemOpt.IsEmptyEx(textPrivOpts.Text);
                 }
             }
         }

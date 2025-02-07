@@ -27,19 +27,19 @@
         </TreeView>
 
         <StackPanel Grid.Column="1"  Background="Ivory" Margin="6, 6, 6, 10">
-            <Label Name="labelDemuxMux" Content="Type" HorizontalAlignment="Center" FontWeight="SemiBold" />
+            <Label Name="labelDemuxMux" Content="Format" HorizontalAlignment="Center" FontWeight="SemiBold" />
             <StackPanel Orientation="Horizontal"  >
                 <Label Content="Name:"  Width="50" />
-                <TextBox Name="textFormatName" Width="200" IsReadOnly="True" Text="" VerticalAlignment="Center"/>
+                <TextBox Name="textName" Width="200" IsReadOnly="True" Text="" VerticalAlignment="Center"/>
             </StackPanel>
             <Label Content="Description:" />
-            <TextBox Name="textFormatLongName" Height="36" Margin="6, 0, 6, 0" IsReadOnly="True" TextWrapping="Wrap" VerticalAlignment="Center" VerticalScrollBarVisibility="Auto" />
+            <TextBox Name="textDescr" Height="36" Margin="6, 0, 6, 0" IsReadOnly="True" TextWrapping="Wrap" VerticalAlignment="Center" VerticalScrollBarVisibility="Auto" />
             <Label Content="Extentions:" />
-            <TextBox Name="textFormatExt" Height="18" Margin="6, 0, 6, 0" IsReadOnly="True" TextWrapping="Wrap" VerticalAlignment="Center" VerticalScrollBarVisibility="Auto"/>
+            <TextBox Name="textExts" Height="18" Margin="6, 0, 6, 0" IsReadOnly="True" TextWrapping="Wrap" VerticalAlignment="Center" VerticalScrollBarVisibility="Auto"/>
             <Label Content="MIME:" />
-            <TextBox Name="textFormatMime" Height="18" Margin="6, 0, 6, 0" IsReadOnly="True" TextWrapping="Wrap" VerticalAlignment="Center" VerticalScrollBarVisibility="Auto"/>
+            <TextBox Name="textMime" Height="18" Margin="6, 0, 6, 0" IsReadOnly="True" TextWrapping="Wrap" VerticalAlignment="Center" VerticalScrollBarVisibility="Auto"/>
             <Label Content="Private options:" Margin="0, 4, 0, 0" />
-            <TextBox Name="textPrivOptions" Height="54" Margin="6, 0, 6, 6" IsReadOnly="True" TextWrapping="Wrap" VerticalAlignment="Center" VerticalScrollBarVisibility="Auto"/>
+            <TextBox Name="textPrivOpts" Height="54" Margin="6, 0, 6, 6" IsReadOnly="True" TextWrapping="Wrap" VerticalAlignment="Center" VerticalScrollBarVisibility="Auto"/>
             <Button Name="buttonPrivOpts" Width="64" HorizontalAlignment="Right" Content="_Detailed..." Margin="0, 4, 6, 4" IsEnabled="False" 
                     Click="buttonPrivOpts_Click" />
          </StackPanel>

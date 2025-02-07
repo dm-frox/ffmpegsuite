@@ -16,6 +16,7 @@ namespace Explorer
         const string DocUrl = @"https://ffmpeg.org/ffmpeg-formats.html";
 
         FormatList m_Formats;
+        FormatInfo m_CurrInfo;
 
         public FormatWindow()
         {
@@ -29,32 +30,44 @@ namespace Explorer
             dlg.ShowDialog();
         }
 
+        void Window_Closed(object sender, EventArgs e) => m_Formats.Dispose();
+
         void SetupList()
         {
             m_Formats = new FormatList();
             SetupFormatTree(treeViewRoot, m_Formats, labelInfo);
-            labelDemuxMux.Content = " ";
         }
 
-        void Window_Closed(object sender, EventArgs e) => m_Formats.Dispose();
-
-        void treeView_SelectedItemChanged(object sender, EventArgs e) => SetFormatInfo(GetInfo());
-
-        FormatInfo GetInfo()
+        void SetFormatInfo()
         {
             var item = (TreeViewItem)treeView.SelectedItem;
-            return item?.Tag as FormatInfo;
+            if (item != null)
+            {
+                m_CurrInfo = item.Tag as FormatInfo;
+                SetFormatInfo(m_CurrInfo);
+                if (m_CurrInfo == null)
+                {
+                    textName.Text = item != treeViewRoot
+                        ? (string)item.Header
+                        : string.Empty;
+                }
+            }
+            else
+            {
+                SetFormatInfo(null);
+                m_CurrInfo = null;
+            }
         }
 
         void SetFormatInfo(FormatInfo info)
         {
-            textFormatName.Text = info?.Name;
-            labelDemuxMux.Content = info != null ? (info.Demuxer ? "Demuxer" : "Muxer") : " ";
-            textFormatLongName.Text = info?.LongName;
-            textFormatExt.Text = info?.Extentions;
-            textFormatMime.Text = info?.Mime;
-            textPrivOptions.Text = info?.PrivOptions;
-            buttonPrivOpts.IsEnabled = !ListItemOpt.IsEmptyEx(textPrivOptions.Text);
+            textName.Text = info?.Name;
+            labelDemuxMux.Content = info != null ? (info.Demuxer ? "Demuxer" : "Muxer") : "Format";
+            textDescr.Text = info?.LongName;
+            textExts.Text = info?.Extentions;
+            textMime.Text = info?.Mime;
+            textPrivOpts.Text = info?.PrivOptions;
+            buttonPrivOpts.IsEnabled = !ListItemOpt.IsEmptyEx(textPrivOpts.Text);
         }
 
         static TreeViewItem AddChildItem(TreeViewItem parItem, object hdr, object tag)
@@ -92,8 +105,7 @@ namespace Explorer
 
         void Write(StreamWriter sw) => FormatWriter.Write(sw, m_Formats, labelInfo.Content.ToString());
 
-        void buttonSave_Click(object sender, EventArgs e) => FileDlg.SaveInTxt(this, Write);
-
+        void treeView_SelectedItemChanged(object sender, EventArgs e) => SetFormatInfo();
 
         void buttonExpandAll_Click(object sender, EventArgs e) => treeViewRoot.ExpandSubtree();
 
@@ -105,7 +117,9 @@ namespace Explorer
             }
         }
 
-        void buttonPrivOpts_Click(object sender, EventArgs e) => OptionsWindow.Launch(this, GetInfo()?.PrivOptionsEx);
+        void buttonSave_Click(object sender, EventArgs e) => FileDlg.SaveInTxt(this, Write);
+
+        void buttonPrivOpts_Click(object sender, EventArgs e) => OptionsWindow.Launch(this, m_CurrInfo?.PrivOptionsEx);
 
         void buttonContext_Click(object sender, EventArgs e) => OptionsWindow.Launch(this, m_Formats.ContextOptionsEx, true);
 

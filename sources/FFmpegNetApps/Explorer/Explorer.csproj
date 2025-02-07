@@ -85,7 +85,6 @@
     <Compile Include="SampFmtWindow.xaml.cs">
       <DependentUpon>SampFmtWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Tests.cs" />
     <Compile Include="VersWindow.xaml.cs">
       <DependentUpon>VersWindow.xaml</DependentUpon>
     </Compile>

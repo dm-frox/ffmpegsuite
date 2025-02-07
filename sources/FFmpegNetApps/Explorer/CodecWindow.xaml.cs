@@ -53,7 +53,6 @@ namespace Explorer
             treeViewRootA.ExpandSubtree();
             treeViewRootS.ExpandSubtree();
             treeViewRootD.ExpandSubtree();
-            //treeViewRootT.ExpandSubtree();
         }
 
         void buttonCollapseAll_Click(object sender, EventArgs e)
@@ -62,7 +61,6 @@ namespace Explorer
             treeViewRootA.IsExpanded = false;
             treeViewRootS.IsExpanded = false;
             treeViewRootD.IsExpanded = false;
-            //treeViewRootT.IsExpanded = false;
         }
 
         void SetCodecInfo(CodecNode node, CodecInfo info)
@@ -86,7 +84,7 @@ namespace Explorer
 
             textMediaType.Text = node?.MediaTypeStr;
             textCodecIdName.Text = node?.Name;
-            textCodecId.Text = node?.LongName;
+            textCodecIdDescr.Text = node?.LongName;
             textLossless.Text = YesNoVA(node?.Lossless);
             textLossy.Text = YesNoVA(node?.Lossy);
             textIntraOnly.Text = YesNoVA(node?.IntraOnly);
@@ -94,14 +92,14 @@ namespace Explorer
                 ? $"{node.DecoderCount}/{node.EncoderCount}" 
                 : null;
 
-            labelCodecName.Content = (info != null) ? (info.Decoder ? "Decoder:" : "Encoder:") : null;
+            labelCodec.Content = (info != null) ? (info.Decoder ? "Decoder" : "Encoder") : "Codec";
             textCodecName.Text = info?.Name;
-            textCodecLongName.Text = info?.LongName;
+            textCodecDescr.Text = info?.LongName;
             textExperimental.Text = YesNo(info?.Experimental);
             textMediaFormats.Text = info?.Formats;
             textAccelerations.Text = info?.HWAccels;
-            textPrivOptions.Text = info?.PrivOptions;
-            buttonPrivOpts.IsEnabled = !ListItemOpt.IsEmptyEx(textPrivOptions.Text);
+            textPrivOpts.Text = info?.PrivOptions;
+            buttonPrivOpts.IsEnabled = !ListItemOpt.IsEmptyEx(textPrivOpts.Text);
         }
 
         static void SetupCodecSubTree(TreeViewItem root, CodecList codecs, MediaType type, bool sort)

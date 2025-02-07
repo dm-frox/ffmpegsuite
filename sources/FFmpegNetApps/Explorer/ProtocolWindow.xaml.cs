@@ -74,10 +74,10 @@ namespace Explorer
                 {
                     textName.Text = pi.Name;
 
-                    textPrivOptions.Text = pi.PrivOptions;
-                    buttonPrivOpts.IsEnabled = !ListItemOpt.IsEmptyEx(textPrivOptions.Text);
+                    textPrivOpts.Text = pi.PrivOptions;
+                    buttonPrivOpts.IsEnabled = !ListItemOpt.IsEmptyEx(textPrivOpts.Text);
 
-                    textDirection.Text = (pi.IsInput && pi.IsOutput)
+                    textDirs.Text = (pi.IsInput && pi.IsOutput)
                         ? "input, output"
                         : pi.IsInput ? "input" : "output";
                 }

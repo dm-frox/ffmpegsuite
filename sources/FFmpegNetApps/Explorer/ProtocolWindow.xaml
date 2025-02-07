@@ -44,10 +44,10 @@
             </StackPanel>
 
             <Label Content="Direction:" Margin="0, 4, 0, 0" />
-            <TextBox Name="textDirection" Margin="6, 0, 6, 6" IsReadOnly="True" TextWrapping="Wrap" VerticalAlignment="Center" VerticalScrollBarVisibility="Auto"/>
+            <TextBox Name="textDirs" Margin="6, 0, 6, 6" IsReadOnly="True" TextWrapping="Wrap" VerticalAlignment="Center" VerticalScrollBarVisibility="Auto"/>
 
             <Label Content="Private options:" Margin="0, 4, 0, 0" />
-            <TextBox Name="textPrivOptions" Height="148" Margin="6, 0, 6, 6" IsReadOnly="True" TextWrapping="Wrap" VerticalAlignment="Center" VerticalScrollBarVisibility="Auto"/>
+            <TextBox Name="textPrivOpts" Height="148" Margin="6, 0, 6, 6" IsReadOnly="True" TextWrapping="Wrap" VerticalAlignment="Center" VerticalScrollBarVisibility="Auto"/>
             <Button Name="buttonPrivOpts" Width="64" HorizontalAlignment="Right" Content="_Detailed..." Margin="0, 4, 6, 4" IsEnabled="False" 
                     Click="buttonPrivOpts_Click" />
         </StackPanel>

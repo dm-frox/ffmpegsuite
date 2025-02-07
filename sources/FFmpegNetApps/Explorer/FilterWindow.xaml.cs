@@ -92,8 +92,8 @@ namespace Explorer
                     textName.Text = pi.Name;
                     textDescr.Text = pi.Descr;
 
-                    textPrivOptions.Text = !InBlackList(pi.Name) ? pi.PrivOptions : string.Empty;
-                    buttonPrivOpts.IsEnabled = !ListItemOpt.IsEmptyEx(textPrivOptions.Text);
+                    textPrivOpts.Text = !InBlackList(pi.Name) ? pi.PrivOptions : string.Empty;
+                    buttonPrivOpts.IsEnabled = !ListItemOpt.IsEmptyEx(textPrivOpts.Text);
                 }
             }
         }
